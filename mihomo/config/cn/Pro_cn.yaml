@@ -89,7 +89,7 @@ sniffer:
 
 # TUN模式
 tun:
-  enable: false
+  enable: true
   stack: mixed
   dns-hijack: ["any:53", "tcp://any:53"]
   auto-route: true
@@ -188,6 +188,7 @@ rules:
 
   # 国际媒体
   - RULE-SET,Emby,EMBY
+  - RULE-SET,MYEmby,EMBY
   - RULE-SET,EmbyIP,EMBY,no-resolve
   - RULE-SET,Streaming,国际媒体
   - RULE-SET,StreamingIP,国际媒体,no-resolve
@@ -231,6 +232,8 @@ rule-providers:
   Netflix:        { <<: *rule-set-domain, url: https://github.com/666OS/rules/raw/release/mihomo/domain/Netflix.mrs }
   Spotify:        { <<: *rule-set-domain, url: https://github.com/666OS/rules/raw/release/mihomo/domain/Spotify.mrs }
   Disney:         { <<: *rule-set-domain, url: https://github.com/666OS/rules/raw/release/mihomo/domain/Disney.mrs }
+  MYEmby:
+    { type: http, behavior: classical, format: text, interval: 86400, url: https://raw.githubusercontent.com/Toxin3333/loon-rule/refs/heads/main/myemby }
   Emby:           { <<: *rule-set-domain, url: https://github.com/666OS/rules/raw/release/mihomo/domain/Emby.mrs }
   Streaming:      { <<: *rule-set-domain, url: https://github.com/666OS/rules/raw/release/mihomo/domain/Streaming.mrs }
   Proxy:          { <<: *rule-set-domain, url: https://github.com/666OS/rules/raw/release/mihomo/domain/Proxy.mrs }
